@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/nocturne-7874f756-993d-4cff-a85e-402d54e4fd07/styles.css">
+  <script src="_ds/nocturne-7874f756-993d-4cff-a85e-402d54e4fd07/_ds_bundle.js"></script>
+  <script src="./doc-page.js"></script>
+  <style>
+    doc-page:not(:defined){visibility:hidden}
+    body{margin:0}
+    a{color:var(--color-accent-300);text-decoration:none}
+    a:hover{color:var(--color-accent-200)}
+    @media print{ .resume-root{ -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+  </style>
+</helmet>
+<doc-page margin="0">
+  <div class="resume-root" lang="en" style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:14.5px;line-height:1.6;padding:52px 56px 44px">
+
+    <!-- Header -->
+    <header style="display:flex;flex-direction:column;gap:8px">
+      <h1 style="font-family:var(--font-heading);font-size:34px;font-weight:500;letter-spacing:0.02em;margin:0">NIKHIL HUKKERIKAR</h1>
+      <div style="font-size:15px;color:var(--color-accent-300);letter-spacing:0.04em">Engineering Leader · Frontend Platforms &amp; Design Systems · Advanced Angular</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--color-neutral-300)">
+        <span>Minneapolis, MN</span>
+        <span>+1 (312) 888-0053</span>
+        <a href="mailto:nhukkerikar@gmail.com">nhukkerikar@gmail.com</a>
+        <a href="https://linkedin.com/in/nikhil-hukkerikar">linkedin.com/in/nikhil-hukkerikar</a>
+      </div>
+    </header>
+    <div style="height:1px;margin:22px 0 20px;background:linear-gradient(90deg,var(--color-accent),transparent 70%)"></div>
+
+    <!-- Summary -->
+    <p style="margin:0 0 22px;max-width:68ch;color:var(--color-neutral-200)">Engineering leader with 16 years in a large regulated enterprise. I lead a 24-person onshore/offshore team and own Phoenix — the bank's internal Angular design system, CLI and form-building platform — backing 50 applications and 300+ developers, with a $3–4M annual budget I negotiate directly with peer executives. Recent work: consolidating legacy applications onto one supported platform, cutting open-source vulnerability findings from 100K to 40K, and building the context layer that makes Copilot accurate against our internal framework. Started in 2010 as a developer on CashPro Online, Phoenix's largest consuming application.</p>
+
+    <!-- Phoenix at a glance -->
+    <sc-if value="{{ showPlatform }}" hint-placeholder-val="{{ true }}">
+      <section style="border:1px solid var(--color-neutral-800);border-radius:var(--radius-md,8px);padding:18px 20px 16px;margin:0 0 24px;background:linear-gradient(180deg,var(--color-neutral-900),transparent)">
+        <div style="font-size:11px;letter-spacing:0.14em;color:var(--color-accent);text-transform:uppercase;margin-bottom:12px">Phoenix — the platform I own, at a glance</div>
+        <div style="display:flex;align-items:stretch;gap:14px;flex-wrap:wrap">
+          <div style="flex:1;min-width:170px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:12px;color:var(--color-neutral-400)">Platform products</div>
+            <div style="display:flex;flex-direction:column;gap:5px;font-size:13px">
+              <div style="border-left:2px solid var(--color-accent);padding-left:10px">Design system — Angular 22 component library</div>
+              <div style="border-left:2px solid var(--color-accent);padding-left:10px">Phoenix CLI — scaffolding, scanning, AI tooling</div>
+              <div style="border-left:2px solid var(--color-accent);padding-left:10px">Loom — form engine, 200+ payment types</div>
+            </div>
+          </div>
+          <div style="align-self:center;color:var(--color-accent);font-size:18px">→</div>
+          <div style="flex:1;min-width:170px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:12px;color:var(--color-neutral-400)">Serving</div>
+            <div style="font-size:13px;line-height:1.7">50 applications · 300+ developers<br>incl. CashPro Online with 30+ sub-apps<br>(login, payments, payroll, dashboards)</div>
+          </div>
+        </div>
+        <div style="height:1px;margin:14px 0 12px;background:linear-gradient(90deg,var(--color-neutral-700),transparent)"></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 28px">
+          <div><span style="font-family:var(--font-heading);font-size:19px;color:var(--color-text)">$3–4M</span> <span style="font-size:12px;color:var(--color-neutral-400)">annual budget</span></div>
+          <div><span style="font-family:var(--font-heading);font-size:19px;color:var(--color-text)">100K → 40K</span> <span style="font-size:12px;color:var(--color-neutral-400)">OSS vulnerabilities</span></div>
+          <div><span style="font-family:var(--font-heading);font-size:19px;color:var(--color-text)">30</span> <span style="font-size:12px;color:var(--color-neutral-400)">teams migrated</span></div>
+          <div><span style="font-family:var(--font-heading);font-size:19px;color:var(--color-text)">24</span> <span style="font-size:12px;color:var(--color-neutral-400)">person team</span></div>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- Skills spotlight -->
+    <section style="margin:0 0 26px;break-inside:avoid">
+      <h2 style="font-family:var(--font-heading);font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 12px">Frontend &amp; Platform Depth</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;font-size:13px">
+        <div style="border-left:2px solid var(--color-accent);padding-left:12px">
+          <div style="color:var(--color-text);margin-bottom:2px">Angular — expert, 14 yrs</div>
+          <div style="color:var(--color-neutral-400)">Angular 22, Signal store, framework authorship, migration strategy, code generation</div>
+        </div>
+        <div style="border-left:2px solid var(--color-accent);padding-left:12px">
+          <div style="color:var(--color-text);margin-bottom:2px">Frontend engineering</div>
+          <div style="color:var(--color-neutral-400)">TypeScript, JavaScript, React 18+, HTML5, CSS3, SASS, Bootstrap</div>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:12px">
+          <div style="color:var(--color-text);margin-bottom:2px">AI-assisted development</div>
+          <div style="color:var(--color-neutral-400)">Copilot custom instruction sets &amp; workspace indexing, LLM context design for proprietary codebases, prompt-based CLI tooling, AI code scanning</div>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:12px">
+          <div style="color:var(--color-text);margin-bottom:2px">Quality &amp; accessibility</div>
+          <div style="color:var(--color-neutral-400)">Vitest, Playwright, WCAG 2.2 AA, Section 508, CI/CD automation</div>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:12px">
+          <div style="color:var(--color-text);margin-bottom:2px">Platform &amp; tooling</div>
+          <div style="color:var(--color-neutral-400)">Node.js, npm, Webpack, Git, GitHub, Figma</div>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:12px">
+          <div style="color:var(--color-text);margin-bottom:2px">Backend &amp; infrastructure</div>
+          <div style="color:var(--color-neutral-400)">Java, Spring MVC, REST, Oracle, OpenShift, Splunk, Agile, SDLC governance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership -->
+    <section style="margin:0 0 26px">
+      <h2 style="font-family:var(--font-heading);font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 10px">Leadership</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px">
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Org design</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">People management</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Budget ownership</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Executive stakeholder negotiation</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Platform &amp; design-system strategy</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Onshore &amp; offshore delivery</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Security &amp; regulatory compliance</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Hiring &amp; coaching</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">Legacy modernization</span>
+        <span style="border:1px solid var(--color-neutral-700);border-radius:999px;padding:3px 11px;color:var(--color-neutral-300)">AI integration</span>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section style="margin:0 0 26px">
+      <h2 style="font-family:var(--font-heading);font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 14px">Experience</h2>
+
+      <article style="position:relative;padding-left:26px;margin-bottom:0;border-left:1px solid var(--color-neutral-700);padding-bottom:24px">
+        <div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 8px var(--color-accent-700)"></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline">
+          <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:500;margin:0">Bank of America — Senior Technology Manager</h3>
+          <span style="font-size:12.5px;color:var(--color-accent-300);white-space:nowrap">Dec 2024 – Present</span>
+        </div>
+        <ul style="margin:8px 0 0;padding-left:18px;color:var(--color-neutral-200);display:flex;flex-direction:column;gap:5px">
+          <li>Lead a 24-person onshore/offshore team of UX designers, engineers and QA analysts; 10 direct reports.</li>
+          <li>Own the $3–4M annual Phoenix budget (since 2025), negotiated directly with peer executives.</li>
+          <li>Accountable for security posture, compliance, roadmap and releases across all three platform products.</li>
+          <li>Moved 30 delivery teams off legacy technology onto Phoenix v8 and Angular 22 (~3 months per team); upgrades now land as a single version bump, so a team moves to a new version in a week.</li>
+          <li>Authored a framework-specific instruction layer for GitHub Copilot: per-entry-point API docs, usage constraints and canonical patterns, indexed so completions resolve against Phoenix's real APIs rather than generic Angular.</li>
+          <li>Cut open-source vulnerability findings from 100K to 40K by consolidating the portfolio onto one supported version.</li>
+          <li>Shipped Phoenix Loom to production, replacing a legacy form engine: 200+ payment types, with business analysts building and publishing forms under maker-checker approval.</li>
+          <li>Built AI into daily workflow: prompt-based CLI commands for code scanning and codebase mapping, plus indexed per-component docs for Copilot accuracy on internal code.</li>
+          <li>Run the central intake pipeline for 300+ developers, prioritizing UX/UI requests, enhancements and defects on a two-week bug SLA.</li>
+          <li>Hired 4 full-time engineers and promoted 3, with zero attrition.</li>
+        </ul>
+      </article>
+
+      <article style="position:relative;padding-left:26px;margin-bottom:0;border-left:1px solid var(--color-neutral-700);padding-bottom:24px">
+        <div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-accent-400)"></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline">
+          <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:500;margin:0">Bank of America — Technology Manager, VP</h3>
+          <span style="font-size:12.5px;color:var(--color-neutral-400);white-space:nowrap">Mar 2022 – Dec 2024</span>
+        </div>
+        <ul style="margin:8px 0 0;padding-left:18px;color:var(--color-neutral-200);display:flex;flex-direction:column;gap:5px">
+          <li>Moved from engineer to manager; set Phoenix strategy for its next major release — planning, new engagements, support, roadmap and hiring.</li>
+          <li>Launched Griffin, a React-based alternative to Phoenix, so React-fluent teams could onboard without retraining.</li>
+          <li>Held the framework to the bank's Global Information Security standards and shipped the changes that closed risks across the application portfolio.</li>
+          <li>Extended the framework for accessibility and mobile; introduced tech-feasibility sessions during design, catching non-standard component usage early.</li>
+        </ul>
+      </article>
+
+      <article style="position:relative;padding-left:26px;margin-bottom:0;border-left:1px solid var(--color-neutral-700);padding-bottom:24px">
+        <div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-accent-400)"></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline">
+          <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:500;margin:0">Bank of America — Software Engineer III, VP</h3>
+          <span style="font-size:12.5px;color:var(--color-neutral-400);white-space:nowrap">Dec 2019 – Feb 2022</span>
+        </div>
+        <ul style="margin:8px 0 0;padding-left:18px;color:var(--color-neutral-200);display:flex;flex-direction:column;gap:5px">
+          <li>Led the Phoenix framework team; set the upgrade and migration path for applications built on it.</li>
+          <li>Built Docsmot, a virtual canvas editor for banking applications — drag-and-drop assembly that generates Angular markup and TypeScript.</li>
+        </ul>
+      </article>
+
+      <article style="position:relative;padding-left:26px;margin-bottom:0;border-left:1px solid var(--color-neutral-700);padding-bottom:24px">
+        <div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-neutral-500)"></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline">
+          <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:500;margin:0">Infosys &amp; Randstad (client: Bank of America) — Phoenix UI</h3>
+          <span style="font-size:12.5px;color:var(--color-neutral-400);white-space:nowrap">Jun 2016 – Nov 2019</span>
+        </div>
+        <ul style="margin:8px 0 0;padding-left:18px;color:var(--color-neutral-200);display:flex;flex-direction:column;gap:5px">
+          <li>Built the reusable Angular component library that became Phoenix; themed it to enterprise UX standards and published it to a private internal npm registry.</li>
+          <li>Added project scaffolding and git pre-commit hooks so teams started faster and kept a consistent code style.</li>
+        </ul>
+      </article>
+
+      <article style="position:relative;padding-left:26px;margin-bottom:0;border-image:linear-gradient(180deg,var(--color-neutral-700),transparent 85%) 1;border-left:1px solid var(--color-neutral-700);padding-bottom:4px">
+        <div style="position:absolute;left:-5px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-neutral-500)"></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline">
+          <h3 style="font-family:var(--font-heading);font-size:16px;font-weight:500;margin:0">Infosys Ltd (client: Bank of America) — CashPro Payments</h3>
+          <span style="font-size:12.5px;color:var(--color-neutral-400);white-space:nowrap">Jun 2010 – May 2016</span>
+        </div>
+        <ul style="margin:8px 0 0;padding-left:18px;color:var(--color-neutral-200);display:flex;flex-direction:column;gap:5px">
+          <li>Designed and built payment types for a global payments hub — Financial-i Innovation of the Year, 2011.</li>
+          <li>Core contributor to the Dynamic Payment Generator, building payment layouts for corporate clients on the fly; won the Infosys Dynamo Award.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 style="font-family:var(--font-heading);font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-300);margin:0 0 8px">Education</h2>
+      <div style="font-size:13.5px;color:var(--color-neutral-200)">Bachelor of Engineering, Electronics &amp; Telecommunications — Mumbai University, India, 2010</div>
+    </section>
+  </div>
+</doc-page>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#161826"/><text x="50" y="50" font-family="Inter,sans-serif" font-size="30" font-weight="500" fill="#9184d9" text-anchor="middle" dominant-baseline="central">NH</text></svg></template>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPlatform&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Content&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showPlatform: this.props.showPlatform ?? true };
+  }
+}
+</script>
+</body>
+</html>

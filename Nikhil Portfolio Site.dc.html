@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/nocturne-7874f756-993d-4cff-a85e-402d54e4fd07/styles.css">
+  <script src="_ds/nocturne-7874f756-993d-4cff-a85e-402d54e4fd07/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);text-wrap:pretty}
+    html{scroll-behavior:smooth}
+    a{color:var(--color-accent-300);text-decoration:none}
+    a:hover{color:var(--color-accent-200)}
+    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    html[data-theme="light"]{
+      --color-bg:#f5f5f8; --color-text:#262838; --color-divider:#dcdde6;
+      --color-neutral-200:#3a3d4f; --color-neutral-300:#4b4e62; --color-neutral-400:#606477;
+      --color-neutral-500:#8b8ea1; --color-neutral-600:#c4c6d3; --color-neutral-700:#d7d9e3;
+      --color-neutral-800:#e4e5ed; --color-neutral-900:#ededf3;
+      --color-accent-200:#4a3e8c; --color-accent-300:#5a4ea4; --color-accent-400:#7568c0;
+      --color-accent-700:#c3bbe9; --color-accent-900:#e0daf7;
+      --color-accent:#6b5dbb;
+    }
+
+    body{transition:background 0.3s ease,color 0.3s ease}
+    .band-hero{background:radial-gradient(1200px 720px at 82% -160px,color-mix(in srgb,var(--color-accent-900) 80%,transparent),transparent 60%)}
+    .band-glow-l{background:radial-gradient(1000px 560px at 8% -8%,color-mix(in srgb,var(--color-accent-900) 55%,transparent),transparent 62%)}
+    .band-glow-r{background:radial-gradient(880px 520px at 94% 6%,color-mix(in srgb,var(--color-accent-900) 60%,transparent),transparent 60%)}
+    .band-surface{background:linear-gradient(180deg,var(--color-bg) 0,var(--color-neutral-900) 14%,var(--color-neutral-900) 86%,var(--color-bg) 100%)}
+    .band-close{background:linear-gradient(180deg,var(--color-bg) 0,var(--color-neutral-900) 42%,var(--color-neutral-900) 100%)}
+    html[data-theme="light"] .band-hero{background:radial-gradient(1200px 720px at 82% -160px,#ded8f6,transparent 62%)}
+    html[data-theme="light"] .band-glow-l{background:radial-gradient(1000px 560px at 8% -8%,#e0daf7,transparent 64%)}
+    html[data-theme="light"] .band-glow-r{background:radial-gradient(880px 520px at 94% 6%,#e0daf7,transparent 62%)}
+    html[data-theme="light"] .band-surface{background:linear-gradient(180deg,var(--color-bg) 0,#e5e6ef 14%,#e5e6ef 86%,var(--color-bg) 100%)}
+    html[data-theme="light"] .band-close{background:linear-gradient(180deg,var(--color-bg) 0,#e5e6ef 42%,#e5e6ef 100%)}
+    @media (max-width:1080px){
+      .feat{grid-template-columns:56px minmax(0,1fr) !important;gap:10px clamp(16px,3vw,28px) !important}
+      .feat > h2{grid-column:2}
+      .feat > p:last-child{grid-column:2;max-width:60ch !important}
+    }
+    @media (max-width:680px){
+      .nav a:not(.btn){display:none}
+      .feat{grid-template-columns:1fr !important;gap:8px !important}
+      .feat > h2, .feat > p:last-child{grid-column:1}
+    }
+  </style>
+</helmet>
+<div style="min-height:100vh">
+  <nav class="nav" style="padding-inline:max(clamp(20px,5vw,72px),calc((100% - 1200px) / 2 + clamp(20px,5vw,72px)))">
+    <span class="nav-brand">Nikhil Hukkerikar</span>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" style="white-space:nowrap" href="Nikhil Hukkerikar Resume.dc.html">Résumé</a>
+    <button type="button" class="btn btn-ghost" style="white-space:nowrap" onClick="{{ toggleTheme }}" aria-label="Toggle color mode">{{ themeLabel }}</button>
+  </nav>
+  <div class="band band-hero">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+    <section style="padding:clamp(56px,11vw,112px) 0 clamp(48px,8vw,84px);animation:rise 0.7s ease both">
+      <h1 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(44px,6.4vw,88px);line-height:1.11;letter-spacing:-0.015em;margin:0 0 0 -0.06em">
+        <span style="display:block">I build the platform</span>
+        <span style="display:block">300 developers build on.</span>
+      </h1>
+      <p style="font-size:17px;line-height:1.65;max-width:58ch;margin:clamp(24px,4vw,42px) 0 0;color:var(--color-text)">Engineering leader at Bank of America. I own Phoenix — the bank's internal Angular design system, CLI and form platform — backing 50 applications, with a 24-person team and a $3–4M budget I negotiate at the executive table. Sixteen years of frontend depth, from payment screens to the framework itself.</p>
+      <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:28px">
+        <a class="btn btn-primary" style="white-space:nowrap" href="#work">See the work</a>
+        <a class="btn btn-ghost" style="white-space:nowrap" href="mailto:nhukkerikar@gmail.com">Get in touch</a>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <section aria-label="By the numbers" style="background:radial-gradient(900px 420px at 85% -40%,color-mix(in srgb,var(--color-section-glow) 70%,transparent),transparent 64%),linear-gradient(180deg,var(--color-bg) 0,var(--color-section) 9%,var(--color-section) 91%,var(--color-bg) 100%);padding:clamp(56px,9vw,88px) 0">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:42px 28px">
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(36px,3.6vw,52px);line-height:1.1;margin:0 0 0 -0.055em;color:#e9e9ed">16 yrs</p><p style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,#e9e9ed 72%,transparent);margin:14px 0 0">In frontend engineering</p></div>
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(36px,3.6vw,52px);line-height:1.1;margin:0 0 0 -0.055em;color:#e9e9ed">300+</p><p style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,#e9e9ed 72%,transparent);margin:14px 0 0">Developers on my platform</p></div>
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(36px,3.6vw,52px);line-height:1.1;margin:0 0 0 -0.055em;color:#e9e9ed">$3–4M</p><p style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,#e9e9ed 72%,transparent);margin:14px 0 0">Annual budget owned</p></div>
+      <div><p style="font-family:var(--font-heading);font-weight:500;font-size:clamp(36px,3.6vw,52px);line-height:1.1;margin:0 0 0 -0.055em;color:#e9e9ed">100K→40K</p><p style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb,#e9e9ed 72%,transparent);margin:14px 0 0">Vulnerability findings cut</p></div>
+    </div>
+  </section>
+
+  <div class="band band-glow-l">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+    <section id="work" style="padding:clamp(56px,9vw,98px) 0 clamp(42px,7vw,70px)">
+      <span style="display:block;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-accent-300);margin-bottom:14px">Selected work</span>
+      <div class="feat" style="display:grid;grid-template-columns:minmax(48px,96px) minmax(180px,420px) minmax(220px,1fr);gap:28px clamp(24px,4vw,72px);align-items:baseline;padding:42px 0">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--color-accent-300);font-feature-settings:'tnum' 1;margin:0">01</p>
+        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:24px;letter-spacing:-0.01em;margin:0">Phoenix</h2>
+        <p style="font-size:15.5px;line-height:1.8;margin:0;color:color-mix(in srgb,var(--color-text) 78%,transparent);max-width:52ch">The bank's internal Angular 22 component library, CLI and platform — 50 applications, 300+ developers, including CashPro Online's 30+ sub-applications. Moved 30 delivery teams off legacy stacks onto it; upgrades that took three months now land as a one-week version bump.</p>
+      </div>
+      <div style="height:1px;background:linear-gradient(to right,transparent,var(--color-neutral-700) 48px calc(100% - 48px),transparent)"></div>
+      <div class="feat" style="display:grid;grid-template-columns:minmax(48px,96px) minmax(180px,420px) minmax(220px,1fr);gap:28px clamp(24px,4vw,72px);align-items:baseline;padding:42px 0">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--color-accent-300);font-feature-settings:'tnum' 1;margin:0">02</p>
+        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:24px;letter-spacing:-0.01em;margin:0">Phoenix-Loom</h2>
+        <p style="font-size:15.5px;line-height:1.8;margin:0;color:color-mix(in srgb,var(--color-text) 78%,transparent);max-width:52ch">A form engine covering 200+ payment types, shipped to production in place of a legacy system. Business analysts build and publish forms themselves under maker-checker approval — nobody releases their own work.</p>
+      </div>
+      <div style="height:1px;background:linear-gradient(to right,transparent,var(--color-neutral-700) 48px calc(100% - 48px),transparent)"></div>
+      <div class="feat" style="display:grid;grid-template-columns:minmax(48px,96px) minmax(180px,420px) minmax(220px,1fr);gap:28px clamp(24px,4vw,72px);align-items:baseline;padding:42px 0">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--color-accent-300);font-feature-settings:'tnum' 1;margin:0">03</p>
+        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:24px;letter-spacing:-0.01em;margin:0">Copilot context layer</h2>
+        <p style="font-size:15.5px;line-height:1.8;margin:0;color:color-mix(in srgb,var(--color-text) 78%,transparent);max-width:52ch">A framework-specific instruction layer for GitHub Copilot: per-entry-point API docs, usage constraints and canonical patterns, indexed so completions resolve against Phoenix's real APIs rather than generic Angular. Plus prompt-based CLI commands for code scanning and codebase mapping.</p>
+      </div>
+      <div style="height:1px;background:linear-gradient(to right,transparent,var(--color-neutral-700) 48px calc(100% - 48px),transparent)"></div>
+      <div class="feat" style="display:grid;grid-template-columns:minmax(48px,96px) minmax(180px,420px) minmax(220px,1fr);gap:28px clamp(24px,4vw,72px);align-items:baseline;padding:42px 0">
+        <p style="font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--color-accent-300);font-feature-settings:'tnum' 1;margin:0">04</p>
+        <h2 style="font-family:var(--font-heading);font-weight:500;font-size:24px;letter-spacing:-0.01em;margin:0">Griffin</h2>
+        <p style="font-size:15.5px;line-height:1.8;margin:0;color:color-mix(in srgb,var(--color-text) 78%,transparent);max-width:52ch">A React-based alternative to Phoenix, launched so teams already fluent in React could onboard to the platform without retraining — same enterprise UX standards, security posture and delivery pipeline, a second framework door into the ecosystem.</p>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <div class="band band-surface">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+    <section id="experience" style="padding:clamp(48px,8vw,84px) 0 clamp(36px,6vw,56px)">
+      <span style="display:block;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-accent-300);margin-bottom:42px">Experience</span>
+      <div style="display:flex;flex-direction:column">
+        <div style="position:relative;padding-left:32px;padding-bottom:42px;border-left:1px solid var(--color-neutral-700)">
+          <div style="position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 10px var(--color-accent-700)"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline"><h3 style="font-family:var(--font-heading);font-weight:500;font-size:19px;margin:0">Senior Technology Manager — Bank of America</h3><span style="font-size:13px;color:var(--color-accent-300)">Dec 2024 – Present</span></div>
+          <p style="font-size:15px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 72%,transparent);max-width:62ch;margin:10px 0 0">Own Phoenix end to end: 24-person onshore/offshore team, $3–4M budget, security posture, roadmap and releases across all three platform products. Hired 4 engineers, promoted 3, zero attrition.</p>
+        </div>
+        <div style="position:relative;padding-left:32px;padding-bottom:42px;border-left:1px solid var(--color-neutral-700)">
+          <div style="position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-accent-400)"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline"><h3 style="font-family:var(--font-heading);font-weight:500;font-size:19px;margin:0">Technology Manager, VP — Bank of America</h3><span style="font-size:13px;color:var(--color-neutral-400)">Mar 2022 – Dec 2024</span></div>
+          <p style="font-size:15px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 72%,transparent);max-width:62ch;margin:10px 0 0">Set Phoenix strategy for its next major release. Launched Griffin, a React-based alternative, and extended the framework for accessibility and mobile.</p>
+        </div>
+        <div style="position:relative;padding-left:32px;padding-bottom:42px;border-left:1px solid var(--color-neutral-700)">
+          <div style="position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-accent-400)"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline"><h3 style="font-family:var(--font-heading);font-weight:500;font-size:19px;margin:0">Software Engineer III, VP — Bank of America</h3><span style="font-size:13px;color:var(--color-neutral-400)">Dec 2019 – Feb 2022</span></div>
+          <p style="font-size:15px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 72%,transparent);max-width:62ch;margin:10px 0 0">Led the Phoenix framework team; set the upgrade and migration path for every application built on it. Built Docsmot.</p>
+        </div>
+        <div style="position:relative;padding-left:32px;padding-bottom:42px;border-left:1px solid var(--color-neutral-700)">
+          <div style="position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-neutral-500)"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline"><h3 style="font-family:var(--font-heading);font-weight:500;font-size:19px;margin:0">Phoenix UI — Infosys &amp; Randstad (client: Bank of America)</h3><span style="font-size:13px;color:var(--color-neutral-400)">Jun 2016 – Nov 2019</span></div>
+          <p style="font-size:15px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 72%,transparent);max-width:62ch;margin:10px 0 0">Built the reusable Angular component library that became Phoenix; published it to a private internal npm registry for delivery teams.</p>
+        </div>
+        <div style="position:relative;padding-left:32px;padding-bottom:8px;border-left:1px solid var(--color-neutral-800)">
+          <div style="position:absolute;left:-5px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--color-bg);border:2px solid var(--color-neutral-500)"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline"><h3 style="font-family:var(--font-heading);font-weight:500;font-size:19px;margin:0">CashPro Payments — Infosys Ltd (client: Bank of America)</h3><span style="font-size:13px;color:var(--color-neutral-400)">Jun 2010 – May 2016</span></div>
+          <p style="font-size:15px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 72%,transparent);max-width:62ch;margin:10px 0 0">Built payment types for a global payments hub — Financial-i Innovation of the Year, 2011. Core contributor to the Dynamic Payment Generator; Infosys Dynamo Award.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <div class="band band-glow-r">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+    <section id="skills" style="padding:clamp(48px,8vw,84px) 0 clamp(42px,7vw,70px)">
+      <span style="display:block;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-accent-300);margin-bottom:36px">Skills</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px clamp(24px,4vw,64px)">
+        <div style="border-left:2px solid var(--color-accent);padding-left:16px">
+          <h3 style="font-family:var(--font-heading);font-weight:500;font-size:16px;margin:0 0 6px">Angular — expert, 14 yrs</h3>
+          <p style="font-size:14.5px;line-height:1.7;margin:0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Angular 22, Signal store, framework authorship, migration strategy, code generation, LLM support</p>
+        </div>
+        <div style="border-left:2px solid var(--color-accent);padding-left:16px">
+          <h3 style="font-family:var(--font-heading);font-weight:500;font-size:16px;margin:0 0 6px">Frontend engineering</h3>
+          <p style="font-size: 14.5px; line-height: 1.7; margin: 0; color: color-mix(in srgb,var(--color-text) 70%,transparent); width: 295px; height: 67px">TypeScript, JavaScript, Angular 22+, React 18+, HTML5, CSS3, SASS, Bootstrap</p>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:16px">
+          <h3 style="font-family:var(--font-heading);font-weight:500;font-size:16px;margin:0 0 6px">AI-assisted development</h3>
+          <p style="font-size:14.5px;line-height:1.7;margin:0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Copilot custom instruction sets, workspace indexing, LLM context design for proprietary codebases, prompt-based CLI tooling</p>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:16px">
+          <h3 style="font-family:var(--font-heading);font-weight:500;font-size:16px;margin:0 0 6px">Quality &amp; accessibility</h3>
+          <p style="font-size:14.5px;line-height:1.7;margin:0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Vitest, Playwright, WCAG 2.2 AA, Section 508, CI/CD automation</p>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:16px">
+          <h3 style="font-family:var(--font-heading);font-weight:500;font-size:16px;margin:0 0 6px">Platform &amp; tooling</h3>
+          <p style="font-size:14.5px;line-height:1.7;margin:0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Node.js, npm, Webpack, Git, GitHub, Figma</p>
+        </div>
+        <div style="border-left:2px solid var(--color-neutral-600);padding-left:16px">
+          <h3 style="font-family:var(--font-heading);font-weight:500;font-size:16px;margin:0 0 6px">Backend &amp; infrastructure</h3>
+          <p style="font-size:14.5px;line-height:1.7;margin:0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Java, Spring MVC, REST, Oracle, OpenShift, Splunk, SDLC governance</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <div class="band band-close">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+
+    <section id="contact" style="padding:clamp(42px,7vw,70px) 0 clamp(36px,6vw,56px)">
+      <h3 style="font-family:var(--font-heading);font-weight:500;font-size:24px;margin:0">Let's talk</h3>
+      <p style="font-size:15.5px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 78%,transparent);margin:14px 0 0;max-width:58ch">Minneapolis, MN · open to engineering leadership conversations.</p>
+      <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:28px">
+        <a class="btn btn-primary" style="white-space:nowrap" href="mailto:nhukkerikar@gmail.com">nhukkerikar@gmail.com</a>
+        <a class="btn btn-ghost" style="white-space:nowrap" href="https://linkedin.com/in/nikhil-hukkerikar">LinkedIn</a>
+        <a class="btn btn-ghost" style="white-space:nowrap" href="tel:+13128880053">+1 (312) 888-0053</a>
+      </div>
+    </section>
+
+    <footer style="padding:56px 0;font-size:13px;color:color-mix(in srgb,var(--color-text) 72%,transparent)">© 2026 Nikhil Hukkerikar</footer>
+  </div>
+  </div>
+</div>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#161826"/><text x="50" y="50" font-family="Inter,sans-serif" font-size="30" font-weight="500" fill="#9184d9" text-anchor="middle" dominant-baseline="central">NH</text></svg></template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: (typeof localStorage !== 'undefined' && localStorage.getItem('nh-theme')) || 'dark' };
+  componentDidMount() { this.applyTheme(this.state.theme); }
+  applyTheme(t) {
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    else document.documentElement.removeAttribute('data-theme');
+  }
+  renderVals() {
+    return {
+      themeLabel: this.state.theme === 'light' ? 'Dark mode' : 'Light mode',
+      toggleTheme: () => {
+        const t = this.state.theme === 'light' ? 'dark' : 'light';
+        this.setState({ theme: t });
+        this.applyTheme(t);
+        localStorage.setItem('nh-theme', t);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
