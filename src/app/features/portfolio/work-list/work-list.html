@@ -5,7 +5,16 @@
     <article class="feat">
       <p class="index" aria-hidden="true">{{ $index + 1 | number: '2.0-0' }}</p>
       <h3 class="title">{{ item.title }}</h3>
-      <p class="summary">{{ item.summary }}</p>
+      <div class="body">
+        <p class="summary">{{ item.summary }}</p>
+
+        @if (item.detail; as detail) {
+          <a class="detail-link" [routerLink]="detail.routerLink">
+            {{ detail.label }}
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        }
+      </div>
     </article>
 
     @if (!last) {

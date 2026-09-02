@@ -40,7 +40,10 @@ src/app/core/             Root services and the content itself.
   seo/                    Per-route title, description, canonical, Open Graph
 src/app/layout/           Header and footer, shared by both pages
 src/app/shared/           Small presentational pieces used by both features
-src/app/features/         portfolio/ · resume/ · not-found/ — lazily routed
+src/app/core/flow/        The Phoenix pipeline: seven stages, four scenarios
+                          that weight them differently
+src/app/features/         portfolio/ · phoenix/ · resume/ · not-found/ —
+                          lazily routed
 ```
 
 ### One content source, two pages
@@ -61,6 +64,19 @@ pages cannot drift apart.
   `IntersectionObserver`-fed signal, set up in `afterNextRender` so it never
   runs during prerendering.
 - No zone.js — the app is zoneless.
+
+### /phoenix
+
+One page, four scenarios: a feature request, a bug fix, a CVE fix and a major
+architectural change. They share a seven-stage pipeline and differ only in
+which stages they skip, who holds each decision, and how long it takes — so
+`flow.data.ts` stores the stages once and each scenario weights them.
+
+All four panels render into the HTML and toggle with `hidden`, so prerendering,
+crawlers and print get the whole comparison; print unhides every panel and drops
+the picker. The picker is Nocturne's `.seg` on native radio inputs, which makes
+arrow-key navigation and the group announcement the browser's job rather than
+hand-rolled tab semantics.
 
 ### Rendering
 

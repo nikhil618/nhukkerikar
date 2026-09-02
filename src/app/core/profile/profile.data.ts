@@ -37,6 +37,10 @@ export const PROFILE: Profile = {
       title: 'Phoenix',
       summary:
         "The bank's internal Angular 22 component library, CLI and platform — 50 applications, 300+ developers, including CashPro Online's 30+ sub-applications. Moved 30 delivery teams off legacy stacks onto it; upgrades that took three months now land as a one-week version bump.",
+      detail: {
+        routerLink: '/phoenix',
+        label: 'How work moves through it',
+      },
     },
     {
       id: 'phoenix-loom',

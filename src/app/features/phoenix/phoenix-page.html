@@ -1,0 +1,77 @@
+<app-site-header [brand]="profile.name()" [action]="action" />
+
+<main id="main" tabindex="-1">
+  <div class="band band-hero">
+    <div class="shell">
+      <section class="intro rise">
+        <span class="kicker">Selected work · Phoenix</span>
+        <h1>How work moves through Phoenix</h1>
+        <p class="lede">
+          A design system, CLI and form platform serving 50 applications and 300+ developers. Four
+          kinds of work arrive at it. They run the same seven stages — at four very different
+          speeds.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <div class="band band-glow-l">
+    <div class="shell">
+      <section class="flow" aria-labelledby="flow-heading">
+        <h2 id="flow-heading" class="kicker">The pipeline</h2>
+
+        <p class="premise">
+          The stages never change. What changes is which ones a scenario skips, who holds the
+          decision inside them, and how long the whole thing takes — from a patch out the same day
+          to a migration measured in quarters.
+        </p>
+
+        <div class="picker no-print">
+          <app-scenario-picker
+            legend="Choose a kind of work"
+            [options]="flow.pickerOptions()"
+            [(selected)]="selectedId"
+          />
+        </div>
+
+        @for (scenario of flow.scenarios(); track scenario.id) {
+          <article class="panel" [hidden]="scenario.id !== selectedId()">
+            <div class="panel-head">
+              <h3>{{ scenario.title }}</h3>
+              <p class="clock">
+                <span class="timescale">{{ scenario.timescale }}</span>
+                <span class="outcome">{{ scenario.outcome }}</span>
+              </p>
+            </div>
+
+            <p class="summary">{{ scenario.summary }}</p>
+
+            <app-flow-strip [scenario]="scenario" [stagesById]="flow.stagesById()" />
+
+            <p class="divergence">
+              <span class="label">Where the shape breaks</span>
+              {{ scenario.divergence }}
+            </p>
+
+            <app-flow-stages [scenario]="scenario" [stagesById]="flow.stagesById()" />
+          </article>
+        }
+      </section>
+    </div>
+  </div>
+
+  <div class="band band-close">
+    <div class="shell">
+      <section class="closing">
+        <h2>Everything runs this way</h2>
+        <p>
+          Phoenix, Phoenix-Loom, the Copilot context layer and Griffin all move through the same
+          seven stages. The pipeline is the product as much as the components are.
+        </p>
+        <a class="btn btn-primary" routerLink="/" fragment="work"> Back to selected work </a>
+      </section>
+
+      <app-site-footer [name]="profile.name()" />
+    </div>
+  </div>
+</main>

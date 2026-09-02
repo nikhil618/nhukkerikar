@@ -1,0 +1,117 @@
+/* Same spine idiom as the career timelines, one entry per pipeline stage. */
+
+:host {
+  display: block;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  position: relative;
+  padding-left: 32px;
+  padding-bottom: 32px;
+  border-left: 1px solid var(--color-neutral-700);
+}
+
+.entry.is-last {
+  padding-bottom: 8px;
+  border-left-color: var(--color-neutral-800);
+}
+
+/* A skipped stage dashes its run of the spine — the pipeline passes through
+   without stopping. */
+.entry.is-skipped {
+  border-left-style: dashed;
+}
+
+app-timeline-marker {
+  left: -5px;
+  top: 4px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  align-items: baseline;
+}
+
+h4 {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.entry.is-dwell h4 {
+  color: var(--color-accent-text);
+}
+
+.entry.is-skipped h4 {
+  color: var(--color-neutral-400);
+}
+
+.badge {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border: 1px solid var(--color-neutral-700);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--color-neutral-400);
+}
+
+.duration {
+  font-size: 13px;
+  color: var(--color-neutral-400);
+}
+
+.entry.is-dwell .duration {
+  color: var(--color-accent-text);
+}
+
+/* The stage's standing purpose, above what this scenario makes of it.
+   neutral-400 is the shallowest ramp step that clears AA on both grounds —
+   neutral-500 is a true mid-grey and fails against the light theme. */
+.purpose {
+  margin: 8px 0 0;
+  max-width: 62ch;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--color-neutral-400);
+}
+
+.detail {
+  margin: 8px 0 0;
+  max-width: 62ch;
+  font-size: 15px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.entry.is-skipped .detail {
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+
+.decided-by {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--color-neutral-300);
+}
+
+.decided-by .label {
+  margin-right: 8px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neutral-400);
+}
