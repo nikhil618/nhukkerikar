@@ -1,4 +1,4 @@
-# nikhilhukkerikar.com
+# nhukkerikar.com
 
 Portfolio and résumé, built on Angular 22 with signals throughout and
 prerendered to static HTML.

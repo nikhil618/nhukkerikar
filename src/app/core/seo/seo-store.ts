@@ -3,7 +3,7 @@ import { inject, Service } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 /** Where the site is served from, for canonical and Open Graph URLs. */
-export const SITE_ORIGIN = 'https://nikhilhukkerikar.com';
+export const SITE_ORIGIN = 'https://nhukkerikar.com';
 
 export interface PageMeta {
   readonly title: string;
