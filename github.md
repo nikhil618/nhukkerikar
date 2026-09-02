@@ -17,7 +17,9 @@ date: 2026-09-02T00:00:00Z
 | Project screen | Repo files |
 | --- | --- |
 | Portfolio (`/`) | `src/app/features/portfolio/` |
+| Phoenix flow (`/phoenix`) | `src/app/features/phoenix/` |
 | Résumé (`/resume`) | `src/app/features/resume/` |
 | Not found | `src/app/features/not-found/` |
 | Copy for all of the above | `src/app/core/profile/profile.data.ts` |
+| Pipeline stages and scenarios | `src/app/core/flow/flow.data.ts` |
 | Original design documents | `legacy/*.dc.html` |

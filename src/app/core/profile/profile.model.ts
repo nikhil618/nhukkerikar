@@ -27,6 +27,11 @@ export interface WorkItem {
   readonly id: string;
   readonly title: string;
   readonly summary: string;
+  /** Set when the entry has a page of its own to read on. */
+  readonly detail?: {
+    readonly routerLink: string;
+    readonly label: string;
+  };
 }
 
 export interface Role {

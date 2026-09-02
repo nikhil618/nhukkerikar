@@ -37,8 +37,30 @@ h2 {
   color: color-mix(in srgb, var(--color-text) 78%, transparent);
 }
 
+/* Entries with a page of their own carry a quiet link under the summary. */
+.detail-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--color-accent-text);
+}
+
+.detail-link:hover {
+  color: var(--color-accent-200);
+}
+
+.detail-link .arrow {
+  transition: transform 0.2s ease;
+}
+
+.detail-link:hover .arrow {
+  transform: translateX(3px);
+}
+
 /* Below the three-column measure the number keeps its own column and the
-   title and summary stack in the second. */
+   title and body stack in the second. */
 @media (max-width: 1080px) {
   .feat {
     grid-template-columns: 56px minmax(0, 1fr);
@@ -46,7 +68,7 @@ h2 {
   }
 
   .title,
-  .summary {
+  .body {
     grid-column: 2;
   }
 
@@ -62,7 +84,7 @@ h2 {
   }
 
   .title,
-  .summary {
+  .body {
     grid-column: 1;
   }
 }

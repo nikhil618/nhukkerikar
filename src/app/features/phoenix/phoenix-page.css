@@ -1,0 +1,166 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* All four scenarios render into the HTML and toggle visibility, so the
+   prerendered page, a crawler and a printout all get the whole comparison. */
+.panel[hidden] {
+  display: none;
+}
+
+app-flow-strip,
+app-flow-stages,
+app-scenario-picker {
+  display: block;
+}
+
+/* ── Intro ─────────────────────────────────────────────────────────────── */
+.intro {
+  padding: clamp(48px, 9vw, 88px) 0 clamp(36px, 6vw, 64px);
+}
+
+.intro h1 {
+  margin: 14px 0 0 -0.05em;
+  font-size: clamp(34px, 4.8vw, 62px);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+}
+
+.lede {
+  margin: clamp(20px, 3vw, 32px) 0 0;
+  max-width: 56ch;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+/* ── Pipeline ──────────────────────────────────────────────────────────── */
+.flow {
+  padding: clamp(48px, 8vw, 84px) 0 clamp(42px, 7vw, 70px);
+}
+
+.premise {
+  margin: 14px 0 0;
+  max-width: 62ch;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.picker {
+  margin: clamp(28px, 4vw, 42px) 0 0;
+}
+
+.panel {
+  margin-top: clamp(32px, 5vw, 52px);
+}
+
+.panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: baseline;
+}
+
+.panel h3 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.clock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: baseline;
+  margin: 0;
+  font-size: 13px;
+}
+
+.timescale {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+.outcome {
+  color: var(--color-neutral-400);
+}
+
+.panel .summary {
+  margin: 14px 0 0;
+  max-width: 62ch;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+app-flow-strip {
+  margin: clamp(32px, 5vw, 48px) 0 0;
+}
+
+/* The one line that says what makes this scenario different — set apart by an
+   accent rule rather than a box, in the system's own idiom. */
+.divergence {
+  margin: clamp(28px, 4vw, 40px) 0 0;
+  padding-left: 16px;
+  max-width: 64ch;
+  border-left: 2px solid var(--color-accent);
+  font-size: 15px;
+  line-height: 1.75;
+  color: color-mix(in srgb, var(--color-text) 82%, transparent);
+}
+
+.divergence .label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+app-flow-stages {
+  margin: clamp(32px, 5vw, 48px) 0 0;
+}
+
+/* ── Closing ───────────────────────────────────────────────────────────── */
+.closing {
+  padding: clamp(42px, 7vw, 70px) 0 clamp(36px, 6vw, 56px);
+}
+
+.closing h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.closing p {
+  margin: 14px 0 28px;
+  max-width: 58ch;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+.closing .btn {
+  white-space: nowrap;
+}
+
+/* ── Print ─────────────────────────────────────────────────────────────────
+   On paper there is nothing to click, so every scenario is shown in full and
+   the picker goes away.                                                      */
+@media print {
+  .panel[hidden] {
+    display: block;
+  }
+
+  .panel {
+    break-inside: avoid;
+    margin-top: 32px;
+  }
+}

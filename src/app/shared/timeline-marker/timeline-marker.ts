@@ -1,9 +1,15 @@
 import { Component, input } from '@angular/core';
-import type { RoleEra } from '../../core/profile/profile.model';
 
 /**
- * The dot on a timeline's spine. Decorative — the entry's heading and dates
- * already carry the meaning — so it is hidden from assistive tech.
+ * How much weight a marker carries. Deliberately visual rather than domain
+ * language: a career timeline reads it as recency, the Phoenix flow reads it
+ * as how much of the pipeline a scenario spends here.
+ */
+export type MarkerTone = 'solid' | 'outlined' | 'muted';
+
+/**
+ * The dot on a timeline's spine. Decorative — the entry beside it already
+ * carries the meaning in text — so it is hidden from assistive tech.
  *
  * Placement is left to the timeline that owns it: the host is positioned
  * absolutely and the parent stylesheet sets its offsets.
@@ -13,8 +19,8 @@ import type { RoleEra } from '../../core/profile/profile.model';
   template: '',
   host: {
     'aria-hidden': 'true',
-    '[class.is-current]': 'era() === "current"',
-    '[class.is-recent]': 'era() === "recent"',
+    '[class.is-solid]': 'tone() === "solid"',
+    '[class.is-outlined]': 'tone() === "outlined"',
   },
   styles: `
     :host {
@@ -22,16 +28,16 @@ import type { RoleEra } from '../../core/profile/profile.model';
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      /* Earliest roles: a quiet neutral ring. */
+      /* muted: a quiet neutral ring. */
       background: var(--color-bg);
       border: 2px solid var(--color-neutral-500);
     }
 
-    :host(.is-recent) {
+    :host(.is-outlined) {
       border-color: var(--color-accent-400);
     }
 
-    :host(.is-current) {
+    :host(.is-solid) {
       background: var(--color-accent);
       border: 0;
       box-shadow: 0 0 10px var(--color-accent-700);
@@ -39,5 +45,5 @@ import type { RoleEra } from '../../core/profile/profile.model';
   `,
 })
 export class TimelineMarker {
-  readonly era = input.required<RoleEra>();
+  readonly tone = input.required<MarkerTone>();
 }

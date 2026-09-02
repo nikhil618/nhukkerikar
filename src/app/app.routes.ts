@@ -1,14 +1,18 @@
 import type { Routes } from '@angular/router';
 
 /**
- * Two pages and a catch-all, each lazily loaded so a visitor who only reads
- * the portfolio never downloads the résumé.
+ * Three pages and a catch-all, each lazily loaded so a visitor who only reads
+ * the portfolio never downloads the résumé or the platform write-up.
  */
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     loadComponent: () => import('./features/portfolio/portfolio-page').then((m) => m.PortfolioPage),
+  },
+  {
+    path: 'phoenix',
+    loadComponent: () => import('./features/phoenix/phoenix-page').then((m) => m.PhoenixPage),
   },
   {
     path: 'resume',

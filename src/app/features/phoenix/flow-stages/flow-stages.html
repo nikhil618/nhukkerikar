@@ -1,0 +1,29 @@
+<ol class="track">
+  @for (entry of entries(); track entry.key; let last = $last) {
+    <li class="entry" [class]="'is-' + entry.weight" [class.is-last]="last">
+      <app-timeline-marker [tone]="entry.tone" />
+
+      <div class="head">
+        <h4>
+          {{ entry.name }}
+          @if (entry.weight === 'skipped') {
+            <span class="badge">skipped</span>
+          }
+        </h4>
+        @if (entry.duration) {
+          <span class="duration">{{ entry.duration }}</span>
+        }
+      </div>
+
+      <p class="purpose">{{ entry.purpose }}</p>
+      <p class="detail">{{ entry.detail }}</p>
+
+      @if (entry.decidedBy) {
+        <p class="decided-by">
+          <span class="label">Decided by</span>
+          {{ entry.decidedBy }}
+        </p>
+      }
+    </li>
+  }
+</ol>
