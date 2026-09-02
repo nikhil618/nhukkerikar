@@ -1,0 +1,61 @@
+/*
+  Bands are the page's rhythm: full-bleed grounds that a section sits inside.
+  Each one is a wash rather than a fill — Nocturne keeps saturation for the
+  metric band alone, which paints its own ground.
+*/
+
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+main:focus {
+  /* The skip link parks focus here; the outline would frame the whole page. */
+  outline: none;
+}
+
+app-hero-section,
+app-work-list,
+app-experience-timeline,
+app-skills-grid,
+app-contact-panel,
+app-site-footer {
+  display: block;
+}
+
+.band-hero {
+  background: radial-gradient(
+    1200px 720px at 82% -160px,
+    var(--band-bloom-strong),
+    transparent 60%
+  );
+}
+
+.band-glow-l {
+  background: radial-gradient(1000px 560px at 8% -8%, var(--band-bloom-soft), transparent 62%);
+}
+
+.band-glow-r {
+  background: radial-gradient(880px 520px at 94% 6%, var(--band-bloom-mid), transparent 60%);
+}
+
+/* Lifts to a surface tone and settles back to the page ground at both edges. */
+.band-surface {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0,
+    var(--band-surface) 14%,
+    var(--band-surface) 86%,
+    var(--color-bg) 100%
+  );
+}
+
+/* The closing band rises to the surface tone and stays there to the footer. */
+.band-close {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0,
+    var(--band-surface) 42%,
+    var(--band-surface) 100%
+  );
+}

@@ -1,0 +1,68 @@
+section {
+  padding: clamp(56px, 9vw, 98px) 0 clamp(42px, 7vw, 70px);
+}
+
+h2 {
+  margin: 0 0 14px;
+}
+
+.feat {
+  display: grid;
+  grid-template-columns: minmax(48px, 96px) minmax(180px, 420px) minmax(220px, 1fr);
+  gap: 28px clamp(24px, 4vw, 72px);
+  align-items: baseline;
+  padding: 42px 0;
+}
+
+.index {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 15px;
+  font-feature-settings: 'tnum' 1;
+  color: var(--color-accent-300);
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.summary {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+
+/* Below the three-column measure the number keeps its own column and the
+   title and summary stack in the second. */
+@media (max-width: 1080px) {
+  .feat {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 10px clamp(16px, 3vw, 28px);
+  }
+
+  .title,
+  .summary {
+    grid-column: 2;
+  }
+
+  .summary {
+    max-width: 60ch;
+  }
+}
+
+@media (max-width: 680px) {
+  .feat {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .title,
+  .summary {
+    grid-column: 1;
+  }
+}

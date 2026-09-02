@@ -1,0 +1,40 @@
+section {
+  margin: 0 0 26px;
+  break-inside: avoid;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.group {
+  padding-left: 12px;
+  border-left: 2px solid var(--color-neutral-600);
+}
+
+.group.is-emphasis {
+  border-left-color: var(--color-accent);
+}
+
+.title {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--color-text);
+}
+
+.detail {
+  display: block;
+  color: var(--color-neutral-400);
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

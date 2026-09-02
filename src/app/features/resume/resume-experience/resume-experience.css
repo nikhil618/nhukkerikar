@@ -1,0 +1,63 @@
+section {
+  margin: 0 0 26px;
+}
+
+h2.resume-heading {
+  margin-bottom: 14px;
+}
+
+.entry {
+  position: relative;
+  padding-left: 26px;
+  padding-bottom: 24px;
+  border-left: 1px solid var(--color-neutral-700);
+}
+
+.entry.is-last {
+  padding-bottom: 4px;
+  /* The spine trails off under the oldest role instead of stopping square. */
+  border-image: linear-gradient(180deg, var(--color-neutral-700), transparent 85%) 1;
+}
+
+app-timeline-marker {
+  left: -5px;
+  top: 5px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+}
+
+h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.period {
+  font-size: 12.5px;
+  white-space: nowrap;
+  color: var(--color-neutral-400);
+}
+
+.period.is-current {
+  color: var(--color-accent-300);
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: var(--color-neutral-200);
+}
+
+@media (max-width: 560px) {
+  .head {
+    flex-direction: column;
+    gap: 2px;
+  }
+}

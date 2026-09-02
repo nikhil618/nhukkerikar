@@ -1,0 +1,36 @@
+<section aria-labelledby="platform-heading">
+  <h2 id="platform-heading">{{ platform().name }} — the platform I own, at a glance</h2>
+
+  <div class="flow">
+    <div class="column">
+      <h3>Platform products</h3>
+      <ul class="products">
+        @for (product of platform().products; track product.name) {
+          <li>{{ product.name }} — {{ product.detail }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="arrow" aria-hidden="true">→</div>
+
+    <div class="column">
+      <h3>Serving</h3>
+      <p class="serving">
+        @for (line of platform().servingLines; track $index) {
+          <span>{{ line }}</span>
+        }
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <ul class="metrics">
+    @for (metric of platform().metrics; track metric.label) {
+      <li>
+        <span class="value">{{ metric.value }}</span>
+        <span class="label">{{ metric.label }}</span>
+      </li>
+    }
+  </ul>
+</section>

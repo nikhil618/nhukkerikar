@@ -1,0 +1,20 @@
+<nav class="nav" aria-label="Primary">
+  <a class="nav-brand" routerLink="/">{{ brand() }}</a>
+
+  @for (section of sections(); track section.id) {
+    <a
+      class="section-link"
+      routerLink="/"
+      [fragment]="section.id"
+      [attr.aria-current]="section.id === activeSectionId() ? 'location' : null"
+    >
+      {{ section.label }}
+    </a>
+  }
+
+  <a class="btn btn-primary action" [routerLink]="action().routerLink">
+    {{ action().label }}
+  </a>
+
+  <app-theme-toggle [(mode)]="theme.mode" [resolved]="theme.resolved()" />
+</nav>

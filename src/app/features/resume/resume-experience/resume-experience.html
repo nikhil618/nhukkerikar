@@ -1,0 +1,22 @@
+<section aria-labelledby="experience-heading">
+  <h2 id="experience-heading" class="resume-heading">Experience</h2>
+
+  @for (role of roles(); track role.id; let last = $last) {
+    <article class="entry" [class.is-last]="last">
+      <app-timeline-marker [era]="role.era" />
+
+      <div class="head">
+        <h3>{{ role.org }} — {{ role.title }}</h3>
+        <span class="period" [class.is-current]="role.era === 'current'">
+          {{ role.period }}
+        </span>
+      </div>
+
+      <ul class="highlights">
+        @for (highlight of role.highlights; track $index) {
+          <li>{{ highlight }}</li>
+        }
+      </ul>
+    </article>
+  }
+</section>

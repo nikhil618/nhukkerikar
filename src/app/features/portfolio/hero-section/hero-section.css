@@ -1,0 +1,35 @@
+section {
+  padding: clamp(56px, 11vw, 112px) 0 clamp(48px, 8vw, 84px);
+}
+
+h1 {
+  /* Optically flush left: the negative indent pulls the first glyph's side
+     bearing back to the column edge, matching the paragraph below it. */
+  margin: 0 0 0 -0.06em;
+  font-size: clamp(44px, 6.4vw, 88px);
+  line-height: 1.11;
+  letter-spacing: -0.015em;
+}
+
+h1 span {
+  display: block;
+}
+
+.summary {
+  margin: clamp(24px, 4vw, 42px) 0 0;
+  max-width: 58ch;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: 28px;
+}
+
+.actions .btn {
+  white-space: nowrap;
+}

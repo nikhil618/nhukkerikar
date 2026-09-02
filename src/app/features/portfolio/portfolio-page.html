@@ -1,0 +1,45 @@
+<app-site-header [brand]="profile.name()" [sections]="sections" [action]="action" />
+
+<main id="main" tabindex="-1">
+  <div class="band band-hero">
+    <div class="shell">
+      <app-hero-section
+        [headline]="profile.profile().heroHeadline"
+        [summary]="profile.profile().heroSummary"
+        [mailto]="profile.mailto()"
+      />
+    </div>
+  </div>
+
+  <app-metric-band [metrics]="profile.headlineMetrics()" />
+
+  <div class="band band-glow-l">
+    <div class="shell">
+      <app-work-list id="work" [items]="profile.work()" />
+    </div>
+  </div>
+
+  <div class="band band-surface">
+    <div class="shell">
+      <app-experience-timeline id="experience" [roles]="profile.roles()" />
+    </div>
+  </div>
+
+  <div class="band band-glow-r">
+    <div class="shell">
+      <app-skills-grid id="skills" [groups]="profile.skills()" />
+    </div>
+  </div>
+
+  <div class="band band-close">
+    <div class="shell">
+      <app-contact-panel
+        id="contact"
+        [contact]="profile.contact()"
+        [mailto]="profile.mailto()"
+        [tel]="profile.tel()"
+      />
+      <app-site-footer [name]="profile.name()" />
+    </div>
+  </div>
+</main>

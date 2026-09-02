@@ -1,0 +1,41 @@
+<div class="no-print">
+  <app-site-header [brand]="profile.name()" [action]="action" />
+</div>
+
+<main id="main" tabindex="-1">
+  <article class="sheet">
+    <app-resume-header
+      [name]="profile.name()"
+      [discipline]="profile.discipline()"
+      [contact]="profile.contact()"
+      [mailto]="profile.mailto()"
+      [tel]="profile.tel()"
+    />
+
+    <div class="accent-rule"></div>
+
+    <p class="summary">{{ profile.profile().resumeSummary }}</p>
+
+    @if (showPlatform()) {
+      <app-platform-glance [platform]="profile.platform()" />
+    }
+
+    <app-skills-matrix [groups]="profile.skills()" />
+
+    <app-leadership-tags [items]="profile.leadership()" />
+
+    <app-resume-experience [roles]="profile.roles()" />
+
+    <section aria-labelledby="education-heading">
+      <h2 id="education-heading" class="resume-heading">Education</h2>
+      <p class="education">
+        {{ profile.education().degree }} — {{ profile.education().institution }},
+        {{ profile.education().year }}
+      </p>
+    </section>
+  </article>
+
+  <div class="toolbar no-print">
+    <button type="button" class="btn btn-secondary" (click)="print()">Print or save as PDF</button>
+  </div>
+</main>
