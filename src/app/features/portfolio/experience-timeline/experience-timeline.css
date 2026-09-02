@@ -1,0 +1,62 @@
+section {
+  padding: clamp(48px, 8vw, 84px) 0 clamp(36px, 6vw, 56px);
+}
+
+h2 {
+  margin: 0 0 42px;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  position: relative;
+  padding-left: 32px;
+  padding-bottom: 42px;
+  border-left: 1px solid var(--color-neutral-700);
+}
+
+/* The spine fades out under the last entry rather than stopping square. */
+.entry.is-last {
+  padding-bottom: 8px;
+  border-left-color: var(--color-neutral-800);
+}
+
+app-timeline-marker {
+  left: -5px;
+  top: 4px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  align-items: baseline;
+}
+
+h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.period {
+  font-size: 13px;
+  color: var(--color-neutral-400);
+}
+
+.period.is-current {
+  color: var(--color-accent-300);
+}
+
+.summary {
+  margin: 10px 0 0;
+  max-width: 62ch;
+  font-size: 15px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+}

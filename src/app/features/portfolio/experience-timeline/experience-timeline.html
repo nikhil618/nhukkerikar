@@ -1,0 +1,20 @@
+<section aria-labelledby="experience-heading">
+  <h2 id="experience-heading" class="kicker">Experience</h2>
+
+  <ol class="track">
+    @for (role of roles(); track role.id; let last = $last) {
+      <li class="entry" [class.is-last]="last">
+        <app-timeline-marker [era]="role.era" />
+
+        <div class="head">
+          <h3>{{ role.title }} — {{ role.org }}</h3>
+          <span class="period" [class.is-current]="role.era === 'current'">
+            {{ role.period }}
+          </span>
+        </div>
+
+        <p class="summary">{{ role.summary }}</p>
+      </li>
+    }
+  </ol>
+</section>

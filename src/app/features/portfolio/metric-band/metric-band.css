@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  /* Fixed against the indigo ground, which does not change with the theme. */
+  --on-section: #e9e9ed;
+}
+
+section {
+  padding: clamp(56px, 9vw, 88px) 0;
+  background:
+    radial-gradient(
+      900px 420px at 85% -40%,
+      color-mix(in srgb, var(--color-section-glow) 70%, transparent),
+      transparent 64%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-bg) 0,
+      var(--color-section) 9%,
+      var(--color-section) 91%,
+      var(--color-bg) 100%
+    );
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 42px 28px;
+}
+
+.value {
+  margin: 0 0 0 -0.055em;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: clamp(36px, 3.6vw, 52px);
+  line-height: 1.1;
+  color: var(--on-section);
+}
+
+.label {
+  margin: 14px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--on-section) 72%, transparent);
+}

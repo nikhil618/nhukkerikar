@@ -1,0 +1,250 @@
+/*
+  Global layer. Everything visual that is not scoped to one component lives
+  here: the light-mode token overrides, page-level base rules and the handful
+  of utilities shared across features. Component-specific styling belongs in
+  that component's own stylesheet.
+
+  The Nocturne design system (design-system/nocturne/styles.css) is loaded
+  ahead of this file by angular.json and owns every token, ramp and component
+  class. Nothing below hard-codes a value the tokens already carry, except the
+  light-mode ramp, which is a second theme for those same tokens.
+*/
+
+/* ── Site tokens ──────────────────────────────────────────────────────────
+   Values Nocturne does not carry: the page's horizontal rhythm and the soft
+   washes behind each section, so components only ever reference a variable.  */
+:root {
+  --gutter: clamp(20px, 5vw, 72px);
+  --measure: 1200px;
+
+  --band-bloom-strong: color-mix(in srgb, var(--color-accent-900) 80%, transparent);
+  --band-bloom-mid: color-mix(in srgb, var(--color-accent-900) 60%, transparent);
+  --band-bloom-soft: color-mix(in srgb, var(--color-accent-900) 55%, transparent);
+  --band-surface: var(--color-neutral-900);
+
+  /* Accent text at button size. `--color-accent` itself reaches only ~4.4:1
+     against the lifted surface bands — fine for the 1px outline, which is a
+     UI component at 3:1, short of AA for the 14px label inside it. One step
+     along the ramp clears 4.5:1 on every ground the buttons sit on. */
+  --color-accent-text: var(--color-accent-400);
+}
+
+/* ── Light mode ────────────────────────────────────────────────────────────
+   Nocturne ships dark. This re-tunes the same token names for a light ground
+   so every component keeps reading `var(--color-*)` and nothing branches on
+   theme. `data-theme` is set before first paint by the inline script in
+   index.html and thereafter by ThemeStore.                                  */
+html[data-theme='light'] {
+  --color-bg: #f5f5f8;
+  --color-surface: #ffffff;
+  --color-text: #262838;
+  --color-divider: #dcdde6;
+
+  --color-neutral-200: #3a3d4f;
+  --color-neutral-300: #4b4e62;
+  --color-neutral-400: #606477;
+  --color-neutral-500: #8b8ea1;
+  --color-neutral-600: #c4c6d3;
+  --color-neutral-700: #d7d9e3;
+  --color-neutral-800: #e4e5ed;
+  --color-neutral-900: #ededf3;
+
+  --color-accent: #6b5dbb;
+  --color-accent-200: #4a3e8c;
+  --color-accent-300: #5a4ea4;
+  --color-accent-400: #7568c0;
+  --color-accent-700: #c3bbe9;
+  --color-accent-900: #e0daf7;
+
+  /* On a light ground the ramp runs the other way: the deeper step is the
+     legible one. */
+  --color-accent-text: var(--color-accent-300);
+
+  /* On a light ground the bloom is painted solid rather than mixed down —
+     a transparent tint over near-white barely registers. */
+  --band-bloom-strong: #ded8f6;
+  --band-bloom-mid: #e0daf7;
+  --band-bloom-soft: #e0daf7;
+  --band-surface: #e5e6ef;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  text-wrap: pretty;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+a {
+  color: var(--color-accent-300);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-200);
+}
+
+/* Nocturne paints these in `--color-accent`; the label needs the next step
+   along to clear AA on the lifted bands. The outline keeps the pure accent. */
+.btn-primary,
+.btn-ghost {
+  color: var(--color-accent-text);
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────────
+   One entrance animation, opted out of wholesale under reduced motion along
+   with the smooth anchor scrolling above.                                   */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    transition: none;
+  }
+
+  .rise,
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Shared layout utilities ──────────────────────────────────────────────
+   The shell centres the measure inside the gutter; full-bleed bands align
+   their content to the same edge.                                           */
+.shell {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Nocturne's fading rule, as a divider between rows of content. */
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-neutral-700) 48px calc(100% - 48px),
+    transparent
+  );
+}
+
+/* The résumé's section headings. Global rather than scoped: several sibling
+   components render one, and they must all match. */
+.resume-heading {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: var(--font-heading-weight);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-300);
+}
+
+/* Section eyebrow — the small uppercase label above each section. */
+.kicker {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-300);
+}
+
+/* Visible to assistive tech only — used to complete a control's accessible
+   name where the visible text alone would be ambiguous. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Skip link ───────────────────────────────────────────────────────────
+   Off-screen until focused, then parked over the header.                    */
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 0;
+  z-index: 10;
+  transform: translateY(-150%);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(var(--space-2));
+}
+
+/* ── Print ───────────────────────────────────────────────────────────────
+   The résumé is meant to be printed. Force the light ramp on paper so the
+   dark ground does not flood the page, and let colour through.              */
+@media print {
+  html,
+  html[data-theme='dark'] {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-text: #1a1c28;
+    --color-divider: #d7d9e3;
+
+    --color-neutral-200: #33364a;
+    --color-neutral-300: #454859;
+    --color-neutral-400: #5c6073;
+    --color-neutral-500: #8b8ea1;
+    --color-neutral-600: #b8bac7;
+    --color-neutral-700: #cfd1dc;
+    --color-neutral-800: #e4e5ed;
+    --color-neutral-900: #f2f2f7;
+
+    --color-accent: #574aa0;
+    --color-accent-200: #3d3378;
+    --color-accent-300: #4a3f8f;
+    --color-accent-400: #6558b4;
+    --color-accent-700: #b6ade0;
+    --color-accent-900: #e6e2f6;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

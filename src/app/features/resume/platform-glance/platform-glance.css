@@ -1,0 +1,105 @@
+section {
+  margin: 0 0 24px;
+  padding: 18px 20px 16px;
+  border: 1px solid var(--color-neutral-800);
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, var(--color-neutral-900), transparent);
+  break-inside: avoid;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: var(--font-heading-weight);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.flow {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 170px;
+}
+
+.column h3 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: var(--font-body);
+  color: var(--color-neutral-400);
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.products li {
+  padding-left: 10px;
+  border-left: 2px solid var(--color-accent);
+}
+
+.arrow {
+  align-self: center;
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+.serving {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.serving span {
+  display: block;
+}
+
+.divider {
+  height: 1px;
+  margin: 14px 0 12px;
+  background: linear-gradient(90deg, var(--color-neutral-700), transparent);
+}
+
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The value and its label are separate elements, so the gap has to be drawn
+   rather than left to the whitespace the template compiler strips. */
+.metrics li {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.value {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  color: var(--color-text);
+}
+
+.label {
+  font-size: 12px;
+  color: var(--color-neutral-400);
+}
