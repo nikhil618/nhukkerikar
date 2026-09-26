@@ -1,4 +1,4 @@
-<app-site-header [brand]="profile.name()" [sections]="sections" [action]="action" />
+<app-site-header [brand]="profile.name()" [sections]="sections()" [action]="action" showLens />
 
 <main id="main" tabindex="-1">
   <div class="band band-hero">
@@ -18,6 +18,15 @@
       <app-work-list id="work" [items]="profile.work()" />
     </div>
   </div>
+
+  <!-- One per view; CSS shows the active one. -->
+  @for (approach of approaches(); track approach.lens) {
+    <div class="band band-approach" [attr.data-lens-only]="approach.lens">
+      <div class="shell">
+        <app-approach-section [id]="approach.value.id" [approach]="approach.value" />
+      </div>
+    </div>
+  }
 
   <div class="band band-surface">
     <div class="shell">

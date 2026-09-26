@@ -1,18 +1,30 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { type Lensed, lensVariants } from '../../../core/lens/lens.model';
+import type { TagGroup } from '../../../core/profile/profile.model';
 
-/** Leadership scope as outlined pills. */
+/**
+ * Outlined pills: leadership scope on one view, core expertise on the other.
+ * Each view gets its own section so each heading keeps a unique id.
+ */
 @Component({
   selector: 'app-leadership-tags',
   template: `
-    <section aria-labelledby="leadership-heading">
-      <h2 id="leadership-heading" class="resume-heading">Leadership</h2>
+    @for (group of groups(); track group.lens) {
+      <section
+        [attr.aria-labelledby]="'tags-heading-' + (group.lens ?? 'all')"
+        [attr.data-lens-only]="group.lens"
+      >
+        <h2 [id]="'tags-heading-' + (group.lens ?? 'all')" class="resume-heading">
+          {{ group.value.title }}
+        </h2>
 
-      <ul>
-        @for (item of items(); track item) {
-          <li>{{ item }}</li>
-        }
-      </ul>
-    </section>
+        <ul>
+          @for (item of group.value.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+    }
   `,
   styles: `
     section {
@@ -43,5 +55,7 @@ import { Component, input } from '@angular/core';
   `,
 })
 export class LeadershipTags {
-  readonly items = input.required<readonly string[]>();
+  readonly tags = input.required<Lensed<TagGroup>>();
+
+  protected readonly groups = computed(() => lensVariants(this.tags()));
 }

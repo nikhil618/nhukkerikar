@@ -13,8 +13,8 @@
       </div>
 
       <ul class="highlights">
-        @for (highlight of entry.role.highlights; track $index) {
-          <li>{{ highlight }}</li>
+        @for (highlight of entry.highlights; track $index) {
+          <li [attr.data-lens-only]="highlight.lens">{{ highlight.text }}</li>
         }
       </ul>
     </article>

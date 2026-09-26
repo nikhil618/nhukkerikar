@@ -6,10 +6,15 @@
       class="section-link"
       routerLink="/"
       [fragment]="section.id"
+      [attr.data-lens-only]="section.lens ?? null"
       [attr.aria-current]="section.id === activeSectionId() ? 'location' : null"
     >
       {{ section.label }}
     </a>
+  }
+
+  @if (showLens()) {
+    <app-lens-toggle class="lens" name="lens-header" [(lens)]="lens.lens" />
   }
 
   <a class="btn btn-primary action" [routerLink]="action().routerLink">

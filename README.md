@@ -53,6 +53,28 @@ Everything either page says lives in `profile.data.ts`, typed by
 timeline) and its bullets (the résumé), so a fact is written once and the two
 pages cannot drift apart.
 
+### Two views, one page
+
+The site reads two ways, as an engineering leader's portfolio or as a
+principal frontend architect's, switched by the **Leadership | Architecture**
+toggle in the header and the hero. It is one page on one URL; the view only
+changes emphasis and wording.
+
+- Content that differs is typed `Lensed<T>` (`{ lead, arch }`) in
+  `profile.model.ts`. Shared pieces are written once in `profile.data.ts` and
+  composed into each view's list. A résumé bullet is a plain string (both
+  views) or `{ text, only: 'lead' | 'arch' }`.
+- Both variants are rendered into the prerendered HTML, each marked
+  `data-lens-only`. One rule in `styles.css` hides whichever does not match
+  `<html data-lens>`, so crawlers see both roles and switching is instant.
+- An inline script in `src/index.html` sets `data-lens` before first paint,
+  from `?view=architecture` / `?view=leadership` or the stored choice
+  (`nh-lens`), so nobody sees the wrong view flash. It also handles a toggle
+  click that lands before hydration. `LensStore` adopts that value and owns it
+  from then on.
+- Leadership is the default. `/phoenix` does not change with the view, so its
+  header has no toggle.
+
 ### Signals
 
 - `ProfileStore`, `ThemeStore` and `SeoStore` are `@Service()` singletons.

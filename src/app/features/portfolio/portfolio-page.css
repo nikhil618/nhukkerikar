@@ -59,3 +59,13 @@ app-site-footer {
     var(--band-surface) 100%
   );
 }
+
+app-approach-section {
+  display: block;
+}
+
+/* Sits between the work list's wash and the timeline's surface lift; a soft
+   bloom from the right keeps the rhythm alternating. */
+.band-approach {
+  background: radial-gradient(880px 520px at 94% 6%, var(--band-bloom-mid), transparent 60%);
+}

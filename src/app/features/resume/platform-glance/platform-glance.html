@@ -25,12 +25,14 @@
 
   <div class="divider"></div>
 
-  <ul class="metrics">
-    @for (metric of platform().metrics; track metric.label) {
-      <li>
-        <span class="value">{{ metric.value }}</span>
-        <span class="label">{{ metric.label }}</span>
-      </li>
-    }
-  </ul>
+  @for (set of metricSets(); track set.lens) {
+    <ul class="metrics" [attr.data-lens-only]="set.lens">
+      @for (metric of set.value; track metric.label) {
+        <li>
+          <span class="value">{{ metric.value }}</span>
+          <span class="label">{{ metric.label }}</span>
+        </li>
+      }
+    </ul>
+  }
 </section>

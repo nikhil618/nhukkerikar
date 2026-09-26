@@ -1,24 +1,28 @@
 <section aria-labelledby="work-heading">
   <h2 id="work-heading" class="kicker">Selected work</h2>
 
-  @for (item of items(); track item.id; let last = $last) {
-    <article class="feat">
-      <p class="index" aria-hidden="true">{{ $index + 1 | number: '2.0-0' }}</p>
-      <h3 class="title">{{ item.title }}</h3>
-      <div class="body">
-        <p class="summary">{{ item.summary }}</p>
+  @for (list of lists(); track list.lens) {
+    <div [attr.data-lens-only]="list.lens">
+      @for (item of list.value; track item.id; let last = $last) {
+        <article class="feat">
+          <p class="index" aria-hidden="true">{{ $index + 1 | number: '2.0-0' }}</p>
+          <h3 class="title">{{ item.title }}</h3>
+          <div class="body">
+            <p class="summary">{{ item.summary }}</p>
 
-        @if (item.detail; as detail) {
-          <a class="detail-link" [routerLink]="detail.routerLink">
-            {{ detail.label }}
-            <span class="arrow" aria-hidden="true">→</span>
-          </a>
+            @if (item.detail; as detail) {
+              <a class="detail-link" [routerLink]="detail.routerLink">
+                {{ detail.label }}
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            }
+          </div>
+        </article>
+
+        @if (!last) {
+          <div class="rule"></div>
         }
-      </div>
-    </article>
-
-    @if (!last) {
-      <div class="rule"></div>
-    }
+      }
+    </div>
   }
 </section>

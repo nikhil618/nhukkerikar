@@ -1,7 +1,12 @@
+import type { Lens, Lensed } from '../lens/lens.model';
+
 /**
  * The shape of the site's content. Both the portfolio and the résumé render
  * from one `Profile`, so a fact is written once and cannot drift between the
  * two pages.
+ *
+ * Fields typed `Lensed<…>` carry one value per lens (leadership and
+ * architecture). Everything else is shared by both.
  */
 
 /** How prominently a timeline entry is marked, oldest to newest. */
@@ -42,10 +47,17 @@ export interface Role {
   readonly period: string;
   readonly era: RoleEra;
   /** One-paragraph form, for the portfolio timeline. */
-  readonly summary: string;
+  readonly summary: string | Lensed<string>;
   /** Bulleted form, for the résumé. */
-  readonly highlights: readonly string[];
+  readonly highlights: readonly Highlight[];
 }
+
+/**
+ * A résumé bullet. A plain string belongs to both lenses; `only` limits it to
+ * one. The list keeps a single order, and each lens reads the bullets that
+ * apply to it.
+ */
+export type Highlight = string | { readonly text: string; readonly only: Lens };
 
 export interface SkillGroup {
   readonly id: string;
@@ -67,7 +79,39 @@ export interface Platform {
   readonly name: string;
   readonly products: readonly PlatformProduct[];
   readonly servingLines: readonly string[];
-  readonly metrics: readonly Metric[];
+  readonly metrics: Lensed<readonly Metric[]>;
+}
+
+/** The résumé's pill list: "Leadership" on one lens, "Core expertise" on the other. */
+export interface TagGroup {
+  readonly title: string;
+  readonly items: readonly string[];
+}
+
+/** One card in an approach section. */
+export interface ApproachItem {
+  readonly id: string;
+  readonly title: string;
+  readonly body: string;
+  /** The result, set apart in the accent colour. */
+  readonly outcome?: string;
+}
+
+/**
+ * The portfolio section that only one lens shows: how the platform is run, or
+ * the architecture decisions behind it.
+ */
+export interface Approach {
+  /** Section id, and the header's anchor target. */
+  readonly id: string;
+  readonly navLabel: string;
+  readonly heading: string;
+  readonly intro: string;
+  readonly items: readonly ApproachItem[];
+  readonly link?: {
+    readonly routerLink: string;
+    readonly label: string;
+  };
 }
 
 export interface Education {
@@ -78,17 +122,18 @@ export interface Education {
 
 export interface Profile {
   readonly name: string;
-  readonly discipline: string;
+  readonly discipline: Lensed<string>;
   /** Two lines, stacked, forming the portfolio's headline. */
-  readonly heroHeadline: readonly [string, string];
-  readonly heroSummary: string;
-  readonly resumeSummary: string;
+  readonly heroHeadline: Lensed<readonly [string, string]>;
+  readonly heroSummary: Lensed<string>;
+  readonly resumeSummary: Lensed<string>;
   readonly contact: Contact;
-  readonly headlineMetrics: readonly Metric[];
-  readonly work: readonly WorkItem[];
+  readonly headlineMetrics: Lensed<readonly Metric[]>;
+  readonly work: Lensed<readonly WorkItem[]>;
+  readonly approach: Lensed<Approach>;
   readonly roles: readonly Role[];
-  readonly skills: readonly SkillGroup[];
-  readonly leadership: readonly string[];
+  readonly skills: Lensed<readonly SkillGroup[]>;
+  readonly expertise: Lensed<TagGroup>;
   readonly platform: Platform;
   readonly education: Education;
 }

@@ -19,7 +19,8 @@ export class ProfileStore {
   readonly work = computed(() => this.profile().work);
   readonly roles = computed(() => this.profile().roles);
   readonly skills = computed(() => this.profile().skills);
-  readonly leadership = computed(() => this.profile().leadership);
+  readonly expertise = computed(() => this.profile().expertise);
+  readonly approach = computed(() => this.profile().approach);
   readonly platform = computed(() => this.profile().platform);
   readonly education = computed(() => this.profile().education);
   readonly headlineMetrics = computed(() => this.profile().headlineMetrics);
