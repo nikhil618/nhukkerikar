@@ -13,7 +13,9 @@
           </span>
         </div>
 
-        <p class="summary">{{ entry.role.summary }}</p>
+        @for (summary of entry.summaries; track summary.lens) {
+          <p class="summary" [attr.data-lens-only]="summary.lens">{{ summary.value }}</p>
+        }
       </li>
     }
   </ol>

@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { booleanAttribute, Component, inject, input } from '@angular/core';
+import { booleanAttribute, Component, computed, inject, input } from '@angular/core';
+import { lensVariants } from '../../core/lens/lens.model';
 import { ProfileStore } from '../../core/profile/profile-store';
 import { SeoStore } from '../../core/seo/seo-store';
 import { SiteHeader } from '../../layout/site-header/site-header';
@@ -33,6 +34,9 @@ export class ResumePage {
 
   protected readonly profile = inject(ProfileStore);
 
+  /** The summary paragraph, one per view. Printing follows the view on screen. */
+  protected readonly summaries = computed(() => lensVariants(this.profile.profile().resumeSummary));
+
   protected readonly action: NavAction = {
     label: 'Portfolio',
     routerLink: '/',
@@ -44,7 +48,7 @@ export class ResumePage {
     inject(SeoStore).apply({
       title: 'Résumé — Nikhil Hukkerikar',
       description:
-        'Sixteen years in frontend engineering: platform ownership, design systems and Angular at enterprise scale, from payment screens to the framework itself.',
+        'Sixteen years in frontend engineering: platform leadership and architecture, design systems and Angular at enterprise scale, from payment screens to the framework itself.',
       path: '/resume',
     });
   }

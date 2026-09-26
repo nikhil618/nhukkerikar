@@ -37,6 +37,84 @@
         }
       })();
     </script>
+
+    <!--
+      Resolve the view (leadership or architecture) before first paint, the
+      same way. Both views are in the prerendered HTML and CSS shows the one
+      named by <html data-lens>, so setting it here means an architecture
+      visitor never sees the leadership copy flash first.
+
+      `?view=architecture` or `?view=leadership` opens the site on that view
+      and remembers it; otherwise the stored choice wins, then the default.
+
+      The change listener lets the toggle work before Angular hydrates. After
+      hydration LensStore owns the attribute and this becomes a no-op echo.
+    -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var KEY = 'nh-lens';
+        var FROM_PARAM = { leadership: 'lead', architecture: 'arch' };
+
+        function isLens(value) {
+          return value === 'lead' || value === 'arch';
+        }
+
+        function store(lens) {
+          try {
+            localStorage.setItem(KEY, lens);
+          } catch (e) {
+            /* storage blocked — the choice lasts for this page view */
+          }
+        }
+
+        var lens = null;
+        try {
+          lens = FROM_PARAM[new URLSearchParams(location.search).get('view')] || null;
+          if (lens) {
+            store(lens);
+          } else {
+            lens = localStorage.getItem(KEY);
+          }
+        } catch (e) {
+          /* storage or URL API unavailable — fall through to the default */
+        }
+        if (isLens(lens)) {
+          root.setAttribute('data-lens', lens);
+        }
+
+        // Every toggle on the page (header and hero) shows the same choice.
+        function syncRadios(current) {
+          var inputs = document.querySelectorAll('input[data-lens-input]');
+          for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = inputs[i].value === current;
+          }
+        }
+
+        document.addEventListener('change', function (event) {
+          var input = event.target;
+          if (
+            input &&
+            input.hasAttribute &&
+            input.hasAttribute('data-lens-input') &&
+            isLens(input.value)
+          ) {
+            root.setAttribute('data-lens', input.value);
+            store(input.value);
+            syncRadios(input.value);
+          }
+        });
+
+        // The radios are prerendered with the default checked; match them to
+        // the view that is actually showing.
+        document.addEventListener('DOMContentLoaded', function () {
+          var current = root.getAttribute('data-lens');
+          if (isLens(current)) {
+            syncRadios(current);
+          }
+        });
+      })();
+    </script>
   </head>
   <body>
     <app-root></app-root>

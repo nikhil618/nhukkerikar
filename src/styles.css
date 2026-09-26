@@ -137,6 +137,33 @@ a:hover {
   }
 }
 
+/* ── View (lens) ──────────────────────────────────────────────────────────
+   Anything written differently for the two views is rendered twice, each
+   copy marked `data-lens-only`. `<html data-lens>` is set before first paint
+   by the inline script in index.html and thereafter by LensStore; without it
+   the leadership view shows. Print follows whichever view is on screen.
+
+   Hidden copies are `display: none`, so they drop out of the accessibility
+   tree and the header's scroll tracking as well as out of sight. A copy that
+   comes back into view fades in; reduced motion cancels that with the rest. */
+html:not([data-lens='arch']) [data-lens-only='arch'],
+html[data-lens='arch'] [data-lens-only='lead'] {
+  display: none !important;
+}
+
+@keyframes lens-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+[data-lens-only] {
+  animation: lens-in 0.35s ease both;
+}
+
 /* ── Shared layout utilities ──────────────────────────────────────────────
    The shell centres the measure inside the gutter; full-bleed bands align
    their content to the same edge.                                           */

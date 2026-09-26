@@ -1,5 +1,5 @@
 <div class="no-print">
-  <app-site-header [brand]="profile.name()" [action]="action" />
+  <app-site-header [brand]="profile.name()" [action]="action" showLens />
 </div>
 
 <main id="main" tabindex="-1">
@@ -14,7 +14,9 @@
 
     <div class="accent-rule"></div>
 
-    <p class="summary">{{ profile.profile().resumeSummary }}</p>
+    @for (summary of summaries(); track summary.lens) {
+      <p class="summary" [attr.data-lens-only]="summary.lens">{{ summary.value }}</p>
+    }
 
     @if (showPlatform()) {
       <app-platform-glance [platform]="profile.platform()" />
@@ -22,7 +24,7 @@
 
     <app-skills-matrix [groups]="profile.skills()" />
 
-    <app-leadership-tags [items]="profile.leadership()" />
+    <app-leadership-tags [tags]="profile.expertise()" />
 
     <app-resume-experience [roles]="profile.roles()" />
 

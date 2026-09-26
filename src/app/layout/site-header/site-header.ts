@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import {
   afterNextRender,
+  booleanAttribute,
   Component,
   computed,
   DestroyRef,
@@ -9,6 +10,8 @@ import {
   signal,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LensStore } from '../../core/lens/lens-store';
+import { LensToggle } from '../../core/lens/lens-toggle';
 import { ThemeStore } from '../../core/theme/theme-store';
 import { ThemeToggle } from '../../core/theme/theme-toggle';
 import type { NavAction, NavSection } from '../site-nav.model';
@@ -20,7 +23,7 @@ import type { NavAction, NavSection } from '../site-nav.model';
  */
 @Component({
   selector: 'app-site-header',
-  imports: [RouterLink, ThemeToggle],
+  imports: [RouterLink, LensToggle, ThemeToggle],
   templateUrl: './site-header.html',
   styleUrl: './site-header.css',
 })
@@ -31,7 +34,11 @@ export class SiteHeader {
   readonly sections = input<readonly NavSection[]>([]);
   readonly action = input.required<NavAction>();
 
+  /** Show the leadership / architecture switch — on pages that change with it. */
+  readonly showLens = input(false, { transform: booleanAttribute });
+
   protected readonly theme = inject(ThemeStore);
+  protected readonly lens = inject(LensStore);
 
   private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);

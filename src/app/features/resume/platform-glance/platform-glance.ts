@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { lensVariants } from '../../../core/lens/lens.model';
 import type { Platform } from '../../../core/profile/profile.model';
 
 /**
@@ -12,4 +13,7 @@ import type { Platform } from '../../../core/profile/profile.model';
 })
 export class PlatformGlance {
   readonly platform = input.required<Platform>();
+
+  /** The four numbers underneath differ by view. */
+  protected readonly metricSets = computed(() => lensVariants(this.platform().metrics));
 }
